@@ -18,9 +18,11 @@ and WHAT YOU SHOULD WRITE is the sayHi function that makes the code above work:
 
 // 1. Write a function called first that takes in two parameters, an array and a callback function, then invokes the callback function, passing in the first element in the array as it's argument.  (see the sayHi function on line 12 for reference)
 
-  // Code Here 
 
-  
+function first (arr, callback) {
+  callback(arr[0])
+}
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
 first(names, function(firstName){
@@ -30,9 +32,13 @@ first(names, function(firstName){
 
 
 
+
+
 // 2. Write a function called last that takes in an array and a callback function, then invokes the callback, passing in the last element in the array as the argument.
 
-  //Code Here
+function last (arr, callback) {
+  callback(arr[arr.length -1])
+}
 
 
 last(names, function(lastName){
@@ -44,7 +50,9 @@ last(names, function(lastName){
 
 // 3. Write a function called multiply that takes in three parameters: two numbers and a callback function.  Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 
-  //Code Here
+function multiply (num1, num2, callback) {
+  callback(num1 * num2)
+}
 
 
 multiply(4, 3, function(answer){
@@ -57,7 +65,12 @@ multiply(4, 3, function(answer){
 // If it does, invoke the callback with true as the argument. 
 // If the name does not exist, invoke the callback with false as the argument.
 
-  //Code Here 
+function contains (arr, name, callback) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === name) {callback (true)}
+  }
+  callback (false)
+}
 
 
 
@@ -75,8 +88,36 @@ contains(names, 'Colt', function(result){
 // 5. Write a function called uniq that takes in an array and a callback function.
 // Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 
-  //Code Here
+// function uniq (arr, callback) {
+//   for(var i = 0; i < arr.length; i++) {
+/////////////////////////////////////////
+//   }
+// }
+// function uniq (arr, callback) {
+//   while
+// }
+/////////////////////////////////////////
+// function uniq (arr, callback) {
+//   var newArr = []
+//   var i = 0
+//   while (i < arr.length - 1) {
+//     if (arr[i] != arr[i + 1]) {
+//       newArr = arr.push(i)
+//     }
+//     i = i + 1
+//   }
+// }
 
+function uniq (arr, callback) {
+  var uniqArr = []
+  arr.sort()
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] != arr[i - 1]) {
+      uniqArr.push(arr[i])
+    }
+  }
+  callback(uniqArr)
+}
 
 
 uniq(names, function(uniqArr){
@@ -86,9 +127,11 @@ uniq(names, function(uniqArr){
 
 // 6. Write a function called each that takes in an array of names and a callback function. For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 
-    //Code Here 
-
-
+function each (arr, callback) {
+  for (var i = 0; i < arr.length; i++) {
+    callback (arr[i], i)
+  }
+}
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -99,9 +142,11 @@ each(names, function(item, indice){
 // 7. Write a function called getUserById that takes in three parameters: an array of objects (users), an id and a callback, and searches for the user with a matching id.
 // When the correct user object is found, invoke the callback with the user object as an argument.
 
-// Code here
-
-
+function getUserById (arr, id, callback) {
+  for (var i = 0; i < arr.length; i++) {
+    if (id === arr[i].id) {callback(arr[i])}
+  }
+}
 
 var users = [
   {
