@@ -112,9 +112,7 @@ function uniq (arr, callback) {
   var uniqArr = []
   arr.sort()
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i] != arr[i - 1]) {
-      uniqArr.push(arr[i])
-    }
+    if (arr[i] != arr[i - 1]) {uniqArr.push(arr[i])}
   }
   callback(uniqArr)
 }
