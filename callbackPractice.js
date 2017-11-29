@@ -88,26 +88,6 @@ contains(names, 'Colt', function(result){
 // 5. Write a function called uniq that takes in an array and a callback function.
 // Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 
-// function uniq (arr, callback) {
-//   for(var i = 0; i < arr.length; i++) {
-/////////////////////////////////////////
-//   }
-// }
-// function uniq (arr, callback) {
-//   while
-// }
-/////////////////////////////////////////
-// function uniq (arr, callback) {
-//   var newArr = []
-//   var i = 0
-//   while (i < arr.length - 1) {
-//     if (arr[i] != arr[i + 1]) {
-//       newArr = arr.push(i)
-//     }
-//     i = i + 1
-//   }
-// }
-
 function uniq (arr, callback) {
   var uniqArr = []
   arr.sort()
